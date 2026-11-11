@@ -84,7 +84,7 @@
         App.toast(v ? '語音提示已開啟' : '語音提示已關閉');
         App.render();
       }
-    }, [App.icon(on ? 'speaker' : 'mute'), h('span', { text: on ? '開' : '關' })]);
+    });
     return App.card('settings-voice', [
       row('語音提示', btn, supported ? '跟著做的時候，用聲音提醒換動作和休息。' : '這個瀏覽器不支援語音。')
     ]);
