@@ -22,7 +22,7 @@
         var c = R.aerobicCredit(state.intensity, state.minutes, plan.intensityCap);
         if (state.intensity === 'light' && c > 0) preview.textContent = '會算進餐盤 ' + c + ' 分鐘。';
         else if (state.intensity === 'light') preview.textContent = '輕強度會記錄下來，但不算進餅裡（WHO 2020：輕度不算中高強度活動）。';
-        else preview.textContent = '會算進有氧 ' + c + ' 分鐘' + (state.intensity === 'vigorous' ? '（高強度 1 分鐘算 2 分鐘）' : '') + '。';
+        else preview.textContent = '會算進' + (kind === 'micro' ? '微型運動 ' : '有氧 ') + c + ' 分鐘' + (state.intensity === 'vigorous' ? '（高強度 1 分鐘算 2 分鐘）' : '') + '。';
       }
       function drawMinutes() {
         minutesBox.innerHTML = '';

@@ -800,3 +800,35 @@ body { background: var(--bg); }
   padding: 10px 18px; font-weight: 700; text-align: center;
   white-space: nowrap; max-width: calc(100% - 48px); overflow: hidden; text-overflow: ellipsis;
 }
+/* 單位欄位等寬，輸入框才會對齊 */
+.input-unit .unit { min-width: 2.4em; text-align: left; }
+.form .field + .field, .form .q + .field, .form .field + .q { margin-top: 10px; }
+
+/* ---------- 11/11 22:10 全頁排版檢查後修的 ---------- */
+.chips.duo { display: grid; grid-template-columns: 1fr 1fr; }
+.chips.trio { display: grid; grid-template-columns: repeat(3, 1fr); }
+.chips.duo .chip, .chips.trio .chip { justify-content: center; text-align: center; flex-wrap: wrap; row-gap: 0; padding: 8px 6px; }
+.chips.trio .chip small { flex-basis: 100%; font-size: 13px; }
+/* 設定的分鐘列：名字下面放「建議值」，不放點點引線 */
+.split-row .legend-name::after { display: none; }
+.split-main { flex-direction: column; align-items: flex-start; gap: 0; min-width: 0; white-space: nowrap; }
+.split-main .hint { font-size: 14px; }
+/* 集滿章：標題列右邊的小章 */
+.month-head .big-stamp-mark {
+  position: static; margin: 0; flex: none;
+  width: 76px; height: 76px; border-width: 4px; font-size: 15px; letter-spacing: 2px;
+  transform: rotate(-10deg);
+}
+/* 計時器準備階段沒有圖時不留白 */
+.timer-fig:empty { display: none; }
+/* InBody 紀錄：日期一行、數字一行 */
+.inbody-history li { grid-template-columns: 1fr auto; row-gap: 2px; }
+.inbody-history li > :first-child { grid-column: 1; grid-row: 1; }
+.inbody-history li > :nth-child(2) { grid-column: 1; grid-row: 2; }
+.inbody-history li > :last-child { grid-column: 2; grid-row: 1 / 3; align-self: center; }
+/* 點單列表：日期在上、內容在下，窄螢幕不擠 */
+.home .log-list li { display: grid; grid-template-columns: auto 1fr auto; column-gap: 10px; row-gap: 0; padding: 8px 0; }
+.home .log-list li > .dot { grid-column: 1; grid-row: 1 / 3; align-self: center; }
+.home .log-list li > .log-date { grid-column: 2; grid-row: 1; font-size: 14px; min-width: 0; }
+.home .log-list li > .log-desc { grid-column: 2; grid-row: 2; }
+.home .log-list li > button { grid-column: 3; grid-row: 1 / 3; align-self: center; }

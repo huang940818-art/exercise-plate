@@ -123,7 +123,7 @@
         var sp = suggestedPlan(v);
         App.saveSettings({ chosenTotal: v, customSplit: splitOf(sp) });
         App.render();
-      }));
+      }, { cls: 'duo' }));
     } else {
       children.push(h('p', { class: 'hint', text: '依你的健康篩檢，先用 ' + plan.total + ' 分鐘起步盤。狀況改變、重填問卷後會開放 300。' }));
     }
@@ -132,11 +132,11 @@
     var capIdx = R.INTENSITY_ORDER.indexOf(plan.screenCap);
     children.push(h('p', { class: 'field-label', text: '強度上限' }));
     children.push(App.chips(R.INTENSITY_ORDER.map(function (k, i) {
-      return { value: k, label: { light: '輕', moderate: '中', vigorous: '高' }[k], sub: i > capIdx ? '篩檢建議先問醫師' : null, disabled: i > capIdx };
+      return { value: k, label: { light: '輕', moderate: '中', vigorous: '高' }[k], sub: i > capIdx ? '先問醫師' : null, disabled: i > capIdx };
     }), plan.intensityCap, false, function (v) {
       App.saveSettings({ chosenIntensity: v });
       App.render();
-    }));
+    }, { cls: 'trio' }));
     if (capIdx < 2) children.push(h('p', { class: 'hint', text: '你的健康篩檢建議強度先到「' + R.INTENSITY_LABEL[plan.screenCap] + '」。取得醫師許可後重填問卷，就能往上調。' }));
 
     // 四塊分鐘

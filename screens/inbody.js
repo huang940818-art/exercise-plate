@@ -97,10 +97,10 @@
       var pts = list.filter(function (x) { return num(x[metric]) !== null; });
       if (!pts.length) { wrap.appendChild(h('p', { class: 'empty', text: '還沒有' + info.label + '的資料。' })); return; }
 
-      var W = 320, H = 190, L = 40, Rt = 14, T = 16, B = 30;
+      var W = 320, H = 200, L = 40, Rt = 18, T = 24, B = 30;
       var vals = pts.map(function (x) { return Number(x[metric]); });
       var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
-      var pad = (max - min) * 0.15 || Math.max(1, Math.abs(max) * 0.03);
+      var pad = (max - min) * 0.3 || Math.max(1, Math.abs(max) * 0.03);
       min -= pad; max += pad;
       var times = pts.map(function (x) { return R.parseISO(x.date).getTime(); });
       var t0 = times[0], t1 = times[times.length - 1];

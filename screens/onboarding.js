@@ -136,7 +136,7 @@
           counter(draft.godin[it.id] || 0, function (v) { draft.godin[it.id] = v; })]));
       });
       body.push(h('div', { class: 'q' }, [h('p', { class: 'q-text', text: Q.strengthExp.text }),
-        App.chips(Q.strengthExp.options, draft.strengthExp, false, function (v) { draft.strengthExp = v; })]));
+        App.chips(Q.strengthExp.options, draft.strengthExp, false, function (v) { draft.strengthExp = v; }, { list: true })]));
       body.push(h('p', { class: 'source', text: '依據：' + Q.godin.source + '；' + Q.strengthExp.source }));
     }
     if (step === 5) body = body.concat(resultBody());
@@ -157,7 +157,7 @@
     plan.notices.forEach(function (n) { out.push(h('p', { class: 'notice ' + n.kind, text: n.text })); });
     if (lv.allowedTotals.length > 1) {
       out.push(h('div', { class: 'q' }, [h('p', { class: 'q-text', text: '本週目標' }),
-        App.chips([{ value: 150, label: '150 起步盤' }, { value: 300, label: '300 完整盤' }], chosen, false, function (v) { draft.wantTotal = v; render(); })]));
+        App.chips([{ value: 150, label: '150 起步盤' }, { value: 300, label: '300 完整盤' }], chosen, false, function (v) { draft.wantTotal = v; render(); }, { cls: 'duo' })]));
     } else {
       out.push(h('p', { class: 'q-text', text: '本週目標：150 分鐘起步盤' }));
     }

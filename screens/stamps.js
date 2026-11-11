@@ -142,15 +142,15 @@
         h('h3', { class: 'month-name', text: pr.name }),
         big ? h('p', { class: 'hint', text: pr.note }) : null
       ]),
-      h('p', { class: 'month-count' }, [h('b', { text: String(Math.min(got, card.need)) }), h('span', { text: '／' + card.need })])
+      card.full ? null : h('p', { class: 'month-count' }, [h('b', { text: String(Math.min(got, card.need)) }), h('span', { text: '／' + card.need })])
     ]);
     var wrap = h('div', { class: 'stamp-card-body' }, grid);
     var children = [head, wrap];
     if (card.full) {
-      var mark = h('div', { class: 'big-stamp-mark', 'aria-label': '集滿大章' }, [produceIcon(pr, 56), h('b', { text: '集滿' })]);
+      var mark = h('div', { class: 'big-stamp-mark', 'aria-label': '集滿大章' }, [produceIcon(pr, 30), h('b', { text: '集滿' })]);
       if (App.stamps().seenCards.indexOf(card.month) < 0) { mark.style.opacity = '0'; pending.bigs.push({ el: mark, month: card.month }); }
       else mark.classList.add('big-stamp');
-      wrap.appendChild(mark);
+      head.appendChild(mark);
       children.push(redeemBox(card));
     } else if (card.current) {
       children.push(h('p', { class: 'hint center', text: '這個月再蓋 ' + (card.need - got) + ' 個章，就能換當季' + pr.name + '。' }));

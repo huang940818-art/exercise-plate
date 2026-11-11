@@ -32,7 +32,7 @@
 
   function logList(prog) {
     var items = prog.logs.slice().sort(function (a, b) { return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0); });
-    if (!items.length) return h('p', { class: 'empty', text: '這週還沒有紀錄，從下面的按鈕開始吧。' });
+    if (!items.length) return h('p', { class: 'empty', text: '這週還沒有紀錄，從上面點一樣開始吧。' });
     return h('ul', { class: 'log-list' }, items.map(function (l) {
       var d = R.parseISO(l.date);
       var credit = (l.kind === 'aerobic' || l.kind === 'micro') ? R.aerobicCredit(l.intensity, l.minutes, App.plan().intensityCap) : l.minutes;

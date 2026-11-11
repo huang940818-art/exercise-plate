@@ -279,7 +279,7 @@
     /** opts.none：複選題加一個「以上皆無」，跟其他選項互斥。onChange(選的, 是否選了無) */
     chips: function (options, selected, multi, onChange, opts) {
       opts = opts || {};
-      var wrap = h('div', { class: 'chips' + (opts.list ? ' list' : ''), role: multi ? 'group' : 'radiogroup' });
+      var wrap = h('div', { class: 'chips' + (opts.list ? ' list' : '') + (opts.cls ? ' ' + opts.cls : ''), role: multi ? 'group' : 'radiogroup' });
       var sel = multi ? (selected || []).slice() : selected;
       var noneOn = !!opts.noneOn && multi && !sel.length;
       function chip(on, label, sub, disabled, extra, click) {
@@ -310,7 +310,9 @@
       return wrap;
     },
     field: function (label, control, hint) {
-      return h('label', { class: 'field' }, [h('span', { class: 'field-label', text: label }), control, hint ? h('span', { class: 'hint', text: hint }) : null]);
+      // 只有單一輸入框才用 <label>；包著一排按鈕時用 div，免得點標題字就按到第一顆
+      var single = control && (control.tagName === 'INPUT' || control.tagName === 'SELECT' || (control.querySelectorAll && control.querySelectorAll('input,select,button').length === 1 && control.querySelector('input,select')));
+      return h(single ? 'label' : 'div', { class: 'field' }, [h('span', { class: 'field-label', text: label }), control, hint ? h('span', { class: 'hint', text: hint }) : null]);
     },
 
     // ---------- 示範資料 ----------

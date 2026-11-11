@@ -48,7 +48,7 @@
       },
       symptoms: {
         id: 'symptoms',
-        text: '您最近是否有下列任何一種狀況？（可複選，沒有就不用選）',
+        text: '您最近是否有下列任何一種狀況？（可複選，沒有請選「以上皆無」）',
         items: [
           { id: 'ischemia', text: '胸口、頸部、下顎或手臂有疑似缺血的疼痛或壓迫感' },
           { id: 'dyspnea', text: '休息或輕微活動就喘' },
@@ -97,7 +97,7 @@
       source: 'Kuorinka et al. 1987（Nordic Musculoskeletal Questionnaire）',
       areas: {
         id: 'areas',
-        text: '下列部位目前有疼痛或受傷嗎？（可複選，沒有就不用選）',
+        text: '下列部位目前有疼痛或受傷嗎？（可複選，沒有請選「以上皆無」）',
         items: [
           { id: 'knee', label: '膝蓋' },
           { id: 'back', label: '腰背' },
