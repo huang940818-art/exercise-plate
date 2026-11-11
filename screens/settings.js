@@ -251,6 +251,7 @@
       root.appendChild(voiceCard());
       root.appendChild(dataCard());
       root.appendChild(h('p', { class: 'hint disclaimer', text: '這是個人化運動建議，不能取代醫師或專業人員評估。運動中如有胸痛、頭暈、呼吸困難等不適，請立即停止並就醫。' }));
+      root.appendChild(h('p', { class: 'credit', text: '開發者　杯子蛋糕好好吃' }));
       return root;
     }
   };

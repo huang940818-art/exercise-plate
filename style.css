@@ -788,3 +788,4 @@ body { background: var(--bg); }
 /* 問卷第一頁：時間 */
 .time-pick .chip { justify-content: flex-start; }
 .time-pick .chip small { margin-left: 6px; }
+.credit { text-align: center; color: var(--ink-3); font-family: var(--serif); letter-spacing: 2px; padding: 4px 0 8px; }
